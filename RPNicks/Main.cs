@@ -36,7 +36,7 @@ namespace RPNicks
 
             if (ev.Player.Role.Type == PlayerRoles.RoleTypeId.ClassD)
             {
-                ev.Player.DisplayNickname = $"D-{random.Next(999)}";
+                ev.Player.DisplayNickname = $"D-{random.Next(9)}{random.Next(9)}{random.Next(9)}{random.Next(9)}";
             }
             else
             {
