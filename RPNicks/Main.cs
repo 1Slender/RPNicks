@@ -32,7 +32,16 @@ namespace RPNicks
 
         private void OnSpawned(SpawnedEventArgs ev)
         {
-            ev.Player.DisplayNickname = $"{Config.names[random.Next(Config.names.Count)]} {Config.surnames[random.Next(Config.surnames.Count)]}";
+            if (ev.Player == null || !ev.Player.IsHuman) return;
+
+            if (ev.Player.Role.Type == PlayerRoles.RoleTypeId.ClassD)
+            {
+                ev.Player.DisplayNickname = $"D-{random.Next(999)}";
+            }
+            else
+            {
+                ev.Player.DisplayNickname = $"{Config.names[random.Next(Config.names.Count)]} {Config.surnames[random.Next(Config.surnames.Count)]}";
+            }
         }
     }
 }
